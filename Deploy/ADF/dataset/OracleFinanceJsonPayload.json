@@ -1,0 +1,125 @@
+{
+	"name": "OracleFinanceJsonPayload",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "blobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "sampleCall.json",
+				"container": "testblob"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"Source": {
+					"type": "string"
+				},
+				"OperatingUnit": {
+					"type": "string"
+				},
+				"VendorName": {
+					"type": "string"
+				},
+				"VendorNumber": {
+					"type": "integer"
+				},
+				"VendorSiteCode": {
+					"type": "string"
+				},
+				"Description": {
+					"type": "string"
+				},
+				"InvoiceAmount": {
+					"type": "number"
+				},
+				"InvoiceCurrencyCode": {
+					"type": "string"
+				},
+				"InvoiceDate": {
+					"type": "string"
+				},
+				"InvoiceIncludesPrepayFlag": {
+					"type": "boolean"
+				},
+				"InvoiceNumber": {
+					"type": "string"
+				},
+				"InvoiceReceivedDate": {
+					"type": "string"
+				},
+				"InvoiceTypeLookupCode": {
+					"type": "string"
+				},
+				"LegalEntityName": {
+					"type": "string"
+				},
+				"RequesterFirstName": {
+					"type": "string"
+				},
+				"RequesterLastName": {
+					"type": "string"
+				},
+				"TermsName": {
+					"type": "string"
+				},
+				"InvoiceInterfaceLine": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"AccountingDate": {
+								"type": "string"
+							},
+							"Amount": {
+								"type": "number"
+							},
+							"AssessableValue": {
+								"type": "number"
+							},
+							"ControlAmount": {
+								"type": "integer"
+							},
+							"Description": {
+								"type": "string"
+							},
+							"ExpenditureType": {
+								"type": "string"
+							},
+							"LineNumber": {
+								"type": "integer"
+							},
+							"LineTypeLookupCode": {
+								"type": "string"
+							},
+							"RequesterFirstName": {
+								"type": "string"
+							},
+							"RequesterLastName": {
+								"type": "string"
+							},
+							"PjcExpenditureTypeName": {
+								"type": "string"
+							},
+							"PjcOrganizationName": {
+								"type": "string"
+							},
+							"PjcTaskNumber": {
+								"type": "string"
+							},
+							"PjcProjectNumber": {
+								"type": "string"
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

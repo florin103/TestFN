@@ -1,0 +1,35 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText2",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "OracleFinanceJsonPayload_copy1",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "Aggregate1"
+				},
+				{
+					"name": "DerivedColumn1"
+				}
+			],
+			"script": "parameters{\n\tLLLL as string ('AAA')\n}\nsource(output(\n\t\t{AGENCY EGENCIA} as string,\n\t\t{SERVICE TEAM} as string,\n\t\tCUSTOMER as integer,\n\t\t{CUSTOMER NAME} as string,\n\t\t{CUSTOMER NAME2} as string,\n\t\tCONTACT as string,\n\t\t{CARD No} as string,\n\t\t{CARD REF.} as string,\n\t\tCC1 as string,\n\t\tCC2 as string,\n\t\tCC3 as string,\n\t\tCC4 as string,\n\t\tCC5 as string,\n\t\t{EXTRA INFORMATION} as string,\n\t\t{No INVOICE} as string,\n\t\t{INVOICE DATE} as date,\n\t\t{INVOICE YEAR} as short,\n\t\t{INVOICE MONTH} as short,\n\t\t{INVOICE DAY} as short,\n\t\t{DEBIT/CREDIT} as string,\n\t\t{LINKED DOCUMENT} as string,\n\t\t{STATEMENT No} as string,\n\t\tOPEN as boolean,\n\t\tTICKET as string,\n\t\t{PAYMENT BY} as string,\n\t\tQUANTITY as short,\n\t\tAMOUNT as double,\n\t\t{AMOUNT (NOVAT)} as double,\n\t\tVAT as boolean,\n\t\tTAXES as double,\n\t\tTRAVELLER as string,\n\t\t{TRAVELLER CODE} as integer,\n\t\t{DEPARTURE DATE} as string,\n\t\t{RETURN DATE} as string,\n\t\t{SEGMENT TYPE} as string,\n\t\tRESOURCE as string,\n\t\tTYPE as string,\n\t\tLABEL as string,\n\t\tCONTINENT as string,\n\t\tCONTINENT2 as string,\n\t\t{COUNTRY ORIGIN} as string,\n\t\t{TOWN ORIGIN} as string,\n\t\t{COUNTRY DESTINATION} as string,\n\t\t{TOWN DESTINATION} as string,\n\t\tCLASS as string,\n\t\t{TEXT CLASS} as string,\n\t\t{1ST CORPORATION} as string,\n\t\tTRIP as string,\n\t\tORI1 as string,\n\t\tDES1 as string,\n\t\tCLA1 as string,\n\t\tCIE1 as string,\n\t\tORI2 as string,\n\t\tDES2 as string,\n\t\tCLA2 as string,\n\t\tCIE2 as string,\n\t\tORI3 as string,\n\t\tDES3 as string,\n\t\tCLA3 as string,\n\t\tCIE3 as string,\n\t\tORI4 as string,\n\t\tDES4 as string,\n\t\tCLA4 as string,\n\t\tCIE4 as string,\n\t\tNB_SEGMENTS as short,\n\t\tDESTINATIONS as string,\n\t\tRESERVATION_MODE as string,\n\t\t{E-TICKET} as boolean,\n\t\t{E-TICKET-REFUSED} as boolean,\n\t\tNETTICKET as boolean,\n\t\tECTERROR as boolean,\n\t\t{BOOKER NAME} as string,\n\t\t{BOOKER PERCODE} as integer,\n\t\t{BOOK DATE} as timestamp,\n\t\tMETAID as integer,\n\t\tPNR as string,\n\t\tRTU as boolean,\n\t\t{ACCOUNT MANAGER} as string,\n\t\t{FINANCE CONSULTANT} as string,\n\t\tICT as string,\n\t\tICS as string,\n\t\tFTC as string,\n\t\t{EXTRA INFORMATION2} as long,\n\t\t{EXTRA INFORMATION3} as string,\n\t\t{SERVICE GROUP} as string,\n\t\t{APPROVER NAME} as string,\n\t\t{APPROVER CODE} as string,\n\t\t{APPROVAL DATE} as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tlimit: 100,\n\twildcardPaths:['*.csv']) ~> source1\nDerivedColumn1 aggregate(groupBy({No INVOICE} = {No INVOICE}),\n\tNewCol = sum({AMOUNT (NOVAT)})) ~> Aggregate1\nsource1 derive(DescriptionHeader = case(instr(lower({SERVICE GROUP}), 'hotel') > 0 && (instr(lower({SERVICE GROUP}), 'air') > 0 || instr(lower({SERVICE GROUP}), 'low cost') > 0) , 'Travel to ' + {TOWN DESTINATION} + ' for ' + TRAVELLER + ' from ' + toString({DEPARTURE DATE}) + ' to ' + toString({RETURN DATE}),\r\nlower({SERVICE GROUP}) == 'hotel', ' Accomodation at ' + {1ST CORPORATION} + ' for ' + TRAVELLER + ' From ' + toString({DEPARTURE DATE}) + ' to ' + toString({RETURN DATE}),\r\n(lower({SERVICE GROUP}) == 'air' || lower({SERVICE GROUP}) == 'low cost' ), 'Flight for ' + TRAVELLER + ' ' + {TOWN ORIGIN} + '-' + {TOWN DESTINATION} + ' ' + toString({DEPARTURE DATE}) + '-' + toString({RETURN DATE}))) ~> DerivedColumn1\nAggregate1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false) ~> sink1"
+		}
+	}
+}

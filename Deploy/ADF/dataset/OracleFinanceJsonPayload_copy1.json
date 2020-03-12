@@ -1,0 +1,19 @@
+{
+	"name": "OracleFinanceJsonPayload_copy1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "blobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "sampleCall.json",
+				"container": "testblob"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

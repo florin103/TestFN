@@ -1,0 +1,376 @@
+{
+	"name": "DelimitedText2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "blobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "testblob"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "AGENCY EGENCIA",
+				"type": "String"
+			},
+			{
+				"name": "SERVICE TEAM",
+				"type": "String"
+			},
+			{
+				"name": "CUSTOMER",
+				"type": "String"
+			},
+			{
+				"name": "CUSTOMER NAME",
+				"type": "String"
+			},
+			{
+				"name": "CUSTOMER NAME2",
+				"type": "String"
+			},
+			{
+				"name": "CONTACT",
+				"type": "String"
+			},
+			{
+				"name": "CARD No",
+				"type": "String"
+			},
+			{
+				"name": "CARD REF.",
+				"type": "String"
+			},
+			{
+				"name": "CC1",
+				"type": "String"
+			},
+			{
+				"name": "CC2",
+				"type": "String"
+			},
+			{
+				"name": "CC3",
+				"type": "String"
+			},
+			{
+				"name": "CC4",
+				"type": "String"
+			},
+			{
+				"name": "CC5",
+				"type": "String"
+			},
+			{
+				"name": "EXTRA INFORMATION",
+				"type": "String"
+			},
+			{
+				"name": "No INVOICE",
+				"type": "String"
+			},
+			{
+				"name": "INVOICE DATE",
+				"type": "String"
+			},
+			{
+				"name": "INVOICE YEAR",
+				"type": "String"
+			},
+			{
+				"name": "INVOICE MONTH",
+				"type": "String"
+			},
+			{
+				"name": "INVOICE DAY",
+				"type": "String"
+			},
+			{
+				"name": "DEBIT/CREDIT",
+				"type": "String"
+			},
+			{
+				"name": "LINKED DOCUMENT",
+				"type": "String"
+			},
+			{
+				"name": "STATEMENT No",
+				"type": "String"
+			},
+			{
+				"name": "OPEN",
+				"type": "String"
+			},
+			{
+				"name": "TICKET",
+				"type": "String"
+			},
+			{
+				"name": "PAYMENT BY",
+				"type": "String"
+			},
+			{
+				"name": "QUANTITY",
+				"type": "String"
+			},
+			{
+				"name": "AMOUNT",
+				"type": "String"
+			},
+			{
+				"name": "AMOUNT (NOVAT)",
+				"type": "String"
+			},
+			{
+				"name": "VAT",
+				"type": "String"
+			},
+			{
+				"name": "TAXES",
+				"type": "String"
+			},
+			{
+				"name": "TRAVELLER",
+				"type": "String"
+			},
+			{
+				"name": "TRAVELLER CODE",
+				"type": "String"
+			},
+			{
+				"name": "DEPARTURE DATE",
+				"type": "String"
+			},
+			{
+				"name": "RETURN DATE",
+				"type": "String"
+			},
+			{
+				"name": "SEGMENT TYPE",
+				"type": "String"
+			},
+			{
+				"name": "RESOURCE",
+				"type": "String"
+			},
+			{
+				"name": "TYPE",
+				"type": "String"
+			},
+			{
+				"name": "LABEL",
+				"type": "String"
+			},
+			{
+				"name": "CONTINENT",
+				"type": "String"
+			},
+			{
+				"name": "CONTINENT2",
+				"type": "String"
+			},
+			{
+				"name": "COUNTRY ORIGIN",
+				"type": "String"
+			},
+			{
+				"name": "TOWN ORIGIN",
+				"type": "String"
+			},
+			{
+				"name": "COUNTRY DESTINATION",
+				"type": "String"
+			},
+			{
+				"name": "TOWN DESTINATION",
+				"type": "String"
+			},
+			{
+				"name": "CLASS",
+				"type": "String"
+			},
+			{
+				"name": "TEXT CLASS",
+				"type": "String"
+			},
+			{
+				"name": "1ST CORPORATION",
+				"type": "String"
+			},
+			{
+				"name": "TRIP",
+				"type": "String"
+			},
+			{
+				"name": "ORI1",
+				"type": "String"
+			},
+			{
+				"name": "DES1",
+				"type": "String"
+			},
+			{
+				"name": "CLA1",
+				"type": "String"
+			},
+			{
+				"name": "CIE1",
+				"type": "String"
+			},
+			{
+				"name": "ORI2",
+				"type": "String"
+			},
+			{
+				"name": "DES2",
+				"type": "String"
+			},
+			{
+				"name": "CLA2",
+				"type": "String"
+			},
+			{
+				"name": "CIE2",
+				"type": "String"
+			},
+			{
+				"name": "ORI3",
+				"type": "String"
+			},
+			{
+				"name": "DES3",
+				"type": "String"
+			},
+			{
+				"name": "CLA3",
+				"type": "String"
+			},
+			{
+				"name": "CIE3",
+				"type": "String"
+			},
+			{
+				"name": "ORI4",
+				"type": "String"
+			},
+			{
+				"name": "DES4",
+				"type": "String"
+			},
+			{
+				"name": "CLA4",
+				"type": "String"
+			},
+			{
+				"name": "CIE4",
+				"type": "String"
+			},
+			{
+				"name": "NB_SEGMENTS",
+				"type": "String"
+			},
+			{
+				"name": "DESTINATIONS",
+				"type": "String"
+			},
+			{
+				"name": "RESERVATION_MODE",
+				"type": "String"
+			},
+			{
+				"name": "E-TICKET",
+				"type": "String"
+			},
+			{
+				"name": "E-TICKET-REFUSED",
+				"type": "String"
+			},
+			{
+				"name": "NETTICKET",
+				"type": "String"
+			},
+			{
+				"name": "ECTERROR",
+				"type": "String"
+			},
+			{
+				"name": "BOOKER NAME",
+				"type": "String"
+			},
+			{
+				"name": "BOOKER PERCODE",
+				"type": "String"
+			},
+			{
+				"name": "BOOK DATE",
+				"type": "String"
+			},
+			{
+				"name": "METAID",
+				"type": "String"
+			},
+			{
+				"name": "PNR",
+				"type": "String"
+			},
+			{
+				"name": "RTU",
+				"type": "String"
+			},
+			{
+				"name": "ACCOUNT MANAGER",
+				"type": "String"
+			},
+			{
+				"name": "FINANCE CONSULTANT",
+				"type": "String"
+			},
+			{
+				"name": "ICT",
+				"type": "String"
+			},
+			{
+				"name": "ICS",
+				"type": "String"
+			},
+			{
+				"name": "FTC",
+				"type": "String"
+			},
+			{
+				"name": "EXTRA INFORMATION2",
+				"type": "String"
+			},
+			{
+				"name": "EXTRA INFORMATION3",
+				"type": "String"
+			},
+			{
+				"name": "SERVICE GROUP",
+				"type": "String"
+			},
+			{
+				"name": "APPROVER NAME",
+				"type": "String"
+			},
+			{
+				"name": "APPROVER CODE",
+				"type": "String"
+			},
+			{
+				"name": "APPROVAL DATE",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
